@@ -1,0 +1,52 @@
+version: "3"
+
+#-------------------------------------------------------------
+# docker-compose
+# Automated solution for integrating continuous monitoring systems Prometheus
+# for variables definitions read doc
+#
+# Copyleft (c) by Alex Sonar 2021
+#-------------------------------------------------------------
+
+services:
+
+  prometheus:
+    image: NGINX
+    ports:
+      - "9000:9000" # PROMETHEUS_MONITORING_SERVER
+      - "9090:9090" # PROMETHEUS_MONITORING_ALT_SERVER
+      - "9100:9100" # PROMETHEUS_NODE_EXPORTER:
+      - "9093:9093" # PROMETHEUS_ALERT_MANAGER
+      - "5000:5000" # PROMETHEUS_BASE_CLUSTER_N0
+      - "5001:5001" # PROMETHEUS_BASE_CLUSTER_N1:5001
+      - "5002:5002" # PROMETHEUS_BASE_CLUSTER_N2
+      - "3000:3000" # PROMETHEUS_GRAFANA
+      - "80:80"     # PROMETHEUS_WEB_PROX
+      - "443:443"   # PROMETHEUS_WEB_PROX_LTS
+      - "22:22"     # PROMETHEUS_SSH
+    volumes:
+      - $VOL_PROMETHEUS_CORE:/etc/prometheus/
+      - $VOL_PROMETHEUS_DATA:/prometheus
+    # - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx:/etc/nginx 
+    environment:
+      - NGINX_HOST=prometheus-monitoring-dev.net
+      - NGINX_PORT=80
+    command:
+      - '-config.file=/etc/prometheus/prometheus.yml'
+      - '-storage.local.path=/prometheus'
+      - '-storage.local.target-heap-size=524288000'
+    restart: unless-stopped
+    networks:
+      - prometheus-monitor-backend-dev
+      - prometheus-monitor-frontend-dev
+    labels:
+      io.prometheus.service.name:  "prometheus-dev"
+      io.prometheus.service.group: "monitoring-dev"
+      io.prometheus.service.title: "prometheus-monitoring-dev"
+
+networks:
+  prometheus-monitor-backend-$ENV_PROMETHEUS:
+    driver: bridge
+  prometheus-monitor-frontend-$ENV_PROMETHEUS:
+    driver: bridge
