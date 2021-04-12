@@ -3,7 +3,6 @@ version: "3"
 #-------------------------------------------------------------
 # docker-compose
 # Automated solution for integrating continuous monitoring systems Prometheus
-# for variables definitions read doc
 #
 # Copyleft (c) by Alex Sonar 2021
 #-------------------------------------------------------------
@@ -15,10 +14,10 @@ services:
     ports:
       - "9000:9000" # PROMETHEUS_MONITORING_SERVER
       - "9090:9090" # PROMETHEUS_MONITORING_ALT_SERVER
-      - "9100:9100" # PROMETHEUS_NODE_EXPORTER:
+      - "9100:9100" # PROMETHEUS_NODE_EXPORTER
       - "9093:9093" # PROMETHEUS_ALERT_MANAGER
       - "5000:5000" # PROMETHEUS_BASE_CLUSTER_N0
-      - "5001:5001" # PROMETHEUS_BASE_CLUSTER_N1:5001
+      - "5001:5001" # PROMETHEUS_BASE_CLUSTER_N1
       - "5002:5002" # PROMETHEUS_BASE_CLUSTER_N2
       - "3000:3000" # PROMETHEUS_GRAFANA
       - "80:80"     # PROMETHEUS_WEB_PROX
