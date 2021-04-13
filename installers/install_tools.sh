@@ -15,6 +15,7 @@ function install_dependencies {
   if $(has_apt_get); then
     # sudo apt-get update -y
     # sudo DEBIAN_FRONTEND=noninteractive apt-get install -y awscli curl unzip jq libcap2-bin
+
     echo "it is use apt-get"
   elif $(has_yum); then
     # sudo yum update -y

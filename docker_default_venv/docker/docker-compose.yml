@@ -1,8 +1,11 @@
-version: "3"
+version: "3.8"
 
 #-------------------------------------------------------------
-# docker-compose
 # Automated solution for integrating continuous monitoring systems Prometheus
+# docker-compose version: "3.8"
+# For full details on what each version includes and how to upgrade, see: 
+# Compose and Docker compatibility matrix
+# https://docs.docker.com/compose/compose-file/
 #
 # Copyleft (c) by Alex Sonar 2021
 #-------------------------------------------------------------
@@ -12,22 +15,23 @@ services:
   prometheus:
     image: NGINX
     ports:
-      - "9000:9000" # PROMETHEUS_MONITORING_SERVER
-      - "9090:9090" # PROMETHEUS_MONITORING_ALT_SERVER
-      - "9100:9100" # PROMETHEUS_NODE_EXPORTER
-      - "9093:9093" # PROMETHEUS_ALERT_MANAGER
-      - "5000:5000" # PROMETHEUS_BASE_CLUSTER_N0
-      - "5001:5001" # PROMETHEUS_BASE_CLUSTER_N1
-      - "5002:5002" # PROMETHEUS_BASE_CLUSTER_N2
-      - "3000:3000" # PROMETHEUS_GRAFANA
-      - "80:80"     # PROMETHEUS_WEB_PROX
-      - "443:443"   # PROMETHEUS_WEB_PROX_LTS
-      - "22:22"     # PROMETHEUS_SSH
+      - "9000:9000" # PROMETHEUS_PORT_MONITORING_SERVER
+      - "9090:9090" # PROMETHEUS_PORT_MONITORING_ALT_SERVER
+      - "9100:9100" # PROMETHEUS_PORT_NODE_EXPORTER
+      - "9093:9093" # PROMETHEUS_PORT_ALERT_MANAGER
+      - "5000:5000" # PROMETHEUS_PORT_BASE_CLUSTER_N0
+      - "5001:5001" # PROMETHEUS_PORT_BASE_CLUSTER_N1
+      - "5002:5002" # PROMETHEUS_PORT_BASE_CLUSTER_N2
+      - "3000:3000" # PROMETHEUS_PORT_GRAFANA
+      - "80:80"     # PROMETHEUS_PORT_WEB_PROX
+      - "443:443"   # PROMETHEUS_PORT_WEB_PROX_LTS
+      - "2222:22"   # PROMETHEUS_PORT_SSH
     volumes:
       - $VOL_PROMETHEUS_CORE:/etc/prometheus/
-      - $VOL_PROMETHEUS_DATA:/prometheus
+      - /home/$USER/prometheus:/etc/prometheus/
+      - ${PROMETHEUS_VOL_DATA}:/prometheus
     # - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx:/etc/nginx 
+      # - ./nginx:/etc/nginx 
     environment:
       - NGINX_HOST=prometheus-monitoring-dev.net
       - NGINX_PORT=80
