@@ -34,9 +34,9 @@ export PROMETHEUS_VOL_DATA="/prometheus"
 export PROMETHEUS_VOL_PROX="/etc/nginx/"
 
 # environment:
-export PROMETHEUS_ENV="prometheus-monnitoring-dev"
-export PROMETHEUS_URI="prometheus-monnitoring-dev.net"
-export PROMETHEUS_NGINX_HOST="${URI_PROMETHEUS}.${ENV_PROMETHEUS}.net"
+export PROMETHEUS_ENV="dev"
+export PROMETHEUS_URI="prometheus-monnitoring"
+export PROMETHEUS_NGINX_HOST="${PROMETHEUS_URI}.${PROMETHEUS_ENV}.net"
 export PROMETHEUS_NGINX_PORT="80"
 export PROMETHEUS_TARGET_HEAP_SIZE="524288000"
 export PROMETHEUS_CONFIG_FILE="/etc/prometheus/prometheus.yml"
