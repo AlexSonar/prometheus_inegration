@@ -17,4 +17,4 @@ cp /etc/prometheus/installers/.bashrc /root
 wget -O /etc/prometheus/installers/prometheus.tar.gz https://github.com/prometheus/prometheus/releases/download/v2.26.0/prometheus-2.26.0.linux-amd64.tar.gz
 mkdir /etc/prometheus/installers/bin/
 tar xvfz /etc/prometheus/installers/prometheus*.tar.gz -C /etc/prometheus/installers/bin/
-
+/etc/prometheus/installers/bin/prometheus
