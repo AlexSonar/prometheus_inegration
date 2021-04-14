@@ -16,11 +16,7 @@ cat << info
 docker compose start
 info
 
-directory=$PWD
-
-export PROMETHEUS_VOL_DATA=$directory/../../prometheus
-ls $PROMETHEUS_VOL_DATA
-echo $PROMETHEUS_VOL_DATA
+./variables_default.sh
 
 docker-compose up -d
 
