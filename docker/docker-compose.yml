@@ -18,9 +18,9 @@ services:
     hostname: nginx_dc_test_n1
     # init: true
     ports:
-      - "9090:9090" # PROMETHEUS_MONITORING_ALT_SERVER
-      - "80:80"     # PROMETHEUS_WEB_PROX
-      - "7922:22"     # PROMETHEUS_SSH
+      - "${PROMETHEUS_PORT_MONITORING_ALT_SERVER}:9090"
+      - "${PROMETHEUS_PORT_WEB_PROX}:80"
+      - "${PROMETHEUS_PORT_SSH}:22" # by defaylt 7922:22
     volumes:
       # - /home/$USER/promet:/etc/prometheus/
       - ${PROMETHEUS_VOL_DATA}:/etc/prometheus/
