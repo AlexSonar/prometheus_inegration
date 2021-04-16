@@ -36,3 +36,6 @@ For full details on what each version includes and how to upgrade, see: [Compose
 
 #prometheus #docer #docer-compose #debian:buster #nginx #apt-get #wget #yml 
 
+Issues
+
+By default sudo might not installed on Debian adn return the "-bash: sudo: command not found", but you can install it. 

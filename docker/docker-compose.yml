@@ -1,0 +1,32 @@
+version: "3"
+
+#-------------------------------------------------------------
+# Automated solution for integrating continuous monitoring systems Prometheus
+# Comprehensive guide available at: 
+# https://octoops.github.io/en/continuing-processes/monitoring/prometheus/integration/prometheus-integration#top  
+# docker-compose version: "3.8"
+# For full details on what each version includes and how to upgrade, see: 
+# Compose and Docker compatibility matrix
+# https://docs.docker.com/compose/compose-file/
+#
+# Copyleft (c) by Alex Sonar 2021
+#-------------------------------------------------------------
+
+services:
+  web:
+    image: nginx
+    hostname: nginx_dc_test_n1
+    # init: true
+    ports:
+      - "${PROMETHEUS_PORT_MONITORING_ALT_SERVER}:9090"
+      - "${PROMETHEUS_PORT_WEB_PROX}:80"
+      - "${PROMETHEUS_PORT_SSH}:22" # by defaylt 7922:22
+    volumes:
+      # - /home/$USER/promet:/etc/prometheus/
+      - ${PROMETHEUS_VOL_DATA}:/etc/prometheus/
+    # command:
+      # - command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      # - /etc/prometheus/prometheus.yml'
+      # bash -c chmod +x /etc/prometheus/installers/install_sudo_on_debian.sh
+      # /etc/prometheus/installers/install_sudo_on_debian.sh
+    restart: unless-stopped
