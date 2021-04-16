@@ -9,6 +9,7 @@
 *.test
 
 /prometheus/installers/bin
+/prometheus/installers/bin/*
 /prometheus/console_libraries
 /prometheus/consoles
 /prometheus/core
