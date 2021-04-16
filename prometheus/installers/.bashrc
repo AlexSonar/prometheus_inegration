@@ -14,5 +14,5 @@
 #
 # Some more alias to avoid making mistakes:
 # alias rm='rm -i'
-# alias cp='cp -i'
+# alias cp='cp -ia'
 # alias mv='mv -i'
