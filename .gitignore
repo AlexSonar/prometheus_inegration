@@ -8,6 +8,14 @@
 # Test binary, built with `go test -c`
 *.test
 
+/prometheus/installers/bin
+/prometheus/console_libraries
+/prometheus/consoles
+/prometheus/core
+/prometheus/data
+/prometheus/installers/prometheus.tar.gz
+/prometheus/prometheus.yml
+
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
