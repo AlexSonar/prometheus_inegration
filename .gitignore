@@ -17,6 +17,12 @@
 /prometheus/installers/prometheus.tar.gz
 /prometheus/prometheus.yml
 
+
+# TF ENV
+/terraform_docker/.terraform
+/terraform_aws/.terraform
+/terraform_docker/.terraform/*
+/terraform_aws/.terraform/*
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
