@@ -7,11 +7,24 @@
 
 # Test binary, built with `go test -c`
 *.test
+
 /prometheus/installers/bin
+/prometheus/installers/bin/*
+/prometheus/console_libraries
+/prometheus/consoles
+/prometheus/core
+/prometheus/data
 /prometheus/installers/prometheus.tar.gz
+/prometheus/prometheus.yml
+
+
+# TF ENV
+/terraform_docker/.terraform
+/terraform_aws/.terraform
+/terraform_docker/.terraform/*
+/terraform_aws/.terraform/*
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
