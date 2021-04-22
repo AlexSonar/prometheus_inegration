@@ -36,14 +36,14 @@ Bash                | Bash
 ### The main executable file on the container side (autostarted)
 prometheus/installers/install_base_tools.sh
 
-### (autostarted)
+### Services test (autostarted)
 docker/services_availability_tests.sh
 
 ## Roadmap
 
 Before you start please:
 
-1. Take a look on roject rerequisites;
+1. Take a look on roject prerequisites;
 2. Take a look on [Docker-compose compatibility doc]();
 3. Take a look on /docker/set_env_vars_default.sh you may want to customize many of the variables like ports; environment; labels networks; ext.
 (**Caution!** the "volumes" has an inverse relationship in the project components)
@@ -56,6 +56,6 @@ The theme contains a minimal test suite.
 [4 any discussions about the project](https://github.com/AlexSonar/prometheus_inegration/discussions/4#discussion-3320618)
 
 
-Created by Alex Sonar 2021
+Created by [Alex Sonar](https://alexsonar.github.io/) 2021
 
 #prometheus #docker #docer-compose #debian:buster #nginx #terraform #aws #azure #apt-get #wget #yml
