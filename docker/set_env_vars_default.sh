@@ -3,7 +3,7 @@
 #-------------------------------------------------------------
 # Automated solution for integrating continuous monitoring systems Prometheus
 # Comprehensive guide available at: 
-# https://octoops.github.io/en/continuing-processes/monitoring/prometheus/integration/prometheus-integration#top  
+# https://alexsonar.github.io/en/continuous-processes/monitoring/prometheus_inegration 
 # docker-compose version: "3.8"
 # For full details on what each version includes and how to upgrade, see: 
 # Compose and Docker compatibility matrix
