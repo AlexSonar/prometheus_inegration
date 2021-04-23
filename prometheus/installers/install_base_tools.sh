@@ -12,11 +12,6 @@
 # Copyleft (c) by Alex Sonar 2021
 #-------------------------------------------------------------
 
-
-
-
-
-
 function has_yum {
   [[ -n "$(command -v yum)" ]]
 }
@@ -29,20 +24,24 @@ function install_dependencies {
   # log_info "Installing dependencies"
 
   if $(has_apt_get); then
+      echo "it is used apt-get"
 #     apt-get update
 #     apt-get install sudo wget curl nano mc htop vi open-ssh net-tools iputils-ping -y
     # sudo DEBIAN_FRONTEND=noninteractive apt-get install -y awscli curl unzip jq libcap2-bin
       apt update
-      apt install apt-file -y
+      apt install apt-file  -y
       apt update
-      apt install sudo wget curl nano vim mc htop net-tools iputils-ping -y
+      apt install sudo wget -y
+      apt install sudo unzip -y
+      apt install sudo curl nano vim mc htop net-tools iputils-ping -y
      #  apt install systemd -y
-    echo "it is used apt-get"
-    echo "it is used apt-get"
+
   elif $(has_yum); then
-    # sudo yum update -y
-    # sudo yum install -y awscli curl unzip jq
     echo "it is use yum"
+    sudo yum update -y
+    sudo yum install -y wget nano
+    sudo yum install -y curl nano vim mc htop net-tools iputils-ping
+    sudo yum install -y awscli curl unzip jq
   else
     log_error "Could not find apt-get or yum. Cannot install dependencies on this OS."
     exit 1
