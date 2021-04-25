@@ -9,6 +9,8 @@
 # Compose and Docker compatibility matrix
 # https://docs.docker.com/compose/compose-file/
 #
+#
+#
 # Copyleft (c) by Alex Sonar 2021
 #-------------------------------------------------------------
 
@@ -30,7 +32,7 @@ export PROMETHEUS_PORT_SSH="7922"
 # volumes:
 directory=$PWD
 export PROMETHEUS_VOL_CORE="/etc/prometheus/"
-export PROMETHEUS_VOL_DATA=$directory/../prometheus
+export PROMETHEUS_VOL_DATA=$directory/prometheus
 export PROMETHEUS_VOL_PROX="/etc/nginx/"
 
 # environment:

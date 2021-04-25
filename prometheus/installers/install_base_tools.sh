@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-#-------------------------------------------------------------
-# Automated solution for integrating continuous monitoring systems Prometheus
-# "Ready to go; the example configuration is set up to use Docker-compose
-# Comprehensive guide available at: 
-# https://alexsonar.github.io/en/continuous-processes/monitoring/prometheus_inegration#top  
-#
-# By default sudo might not installed on Debian adn return the "-bash: sudo: command not found", but you can install it. 
-# First enable su-mode: su -
-#
-# Copyleft (c) by Alex Sonar 2021
-#-------------------------------------------------------------
+:'
+Automated solution for integrating continuous monitoring systems Prometheus
+Ready to go; the example configuration is set up to use Docker-compose
+Comprehensive guide available at: 
+https://alexsonar.github.io/en/continuous-processes/monitoring/prometheus_inegration#top  
+
+By default sudo might not installed on Debian adn return the "-bash: sudo: command not found", but you can install it. 
+First enable su-mode: su -
+
+Copyleft (c) by Alex Sonar 2021
+'
 
 function has_yum {
   [[ -n "$(command -v yum)" ]]

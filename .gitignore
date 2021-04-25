@@ -9,6 +9,10 @@
 *.test
 /prometheus/installers/bin
 /prometheus/installers/prometheus.tar.gz
+/prometheus/consoles
+/prometheus/console_libraries
+/prometheus/prometheus.yml
+docker/make_compose_component_test.sh
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 

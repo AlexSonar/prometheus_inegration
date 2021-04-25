@@ -43,13 +43,40 @@ cat << info
 docker compose start
 info
 
+function set_env_vars_default {
+echo "set_env_vars_default"
 sudo chmod +x -Rfv *
 . ./set_env_vars_default.sh
+}
 
-docker-compose up -d
+function set_env_vars_default2 {
+echo "set_env_vars_default 2"
+sudo chmod +x -Rfv docker/*
+. docker/set_env_vars_default.sh
+}
 
+[ -f set_env_vars_default.sh ] && set_env_vars_default || set_env_vars_default2
+
+
+function make_compose { 
+docker-compose -f docker-compose.yml up -d
 sleep 3
 docker-compose ps
+}
+
+function make_compose2 {
+  # cat docker/docker-compose.yml
+  cat $PWD/docker/docker-compose.yml
+  docker-compose -f $PWD/docker/docker-compose.yml up -d 
+  sleep 3
+  docker-compose -f $PWD/docker/docker-compose.yml ps
+} 
+
+[ -f docker-compose.yml ] && echo "starts the containers in detached mode "; make_compose || echo "the containers started in detached mode";  make_compose2
+
+# docker-compose up -d
+
+
 sleep 6
 
 # docker exec -d docker_web_1 bash /etc/prometheus/installers/install_base_tools.sh
@@ -60,10 +87,18 @@ sleep 3
 if [[ $interrupt_count -eq 1 ]]; then
     fail "Really quit? Hit ctrl-c again to confirm."
   else
-    echo "Goodbye!"    
+    echo "No interruptions count!"    
 fi
 
-. ./services_availability_tests.sh
+function services_availability_tests {
+  . ./services_availability_tests.sh
+  }
+
+function services_availability_tests2 {
+  . docker/services_availability_tests.sh
+  }
+
+[ -f ./services_availability_tests.sh ] && services_availability_tests || services_availability_tests2
 
 echo "visit to ${PROMETHEUS_NGINX_HOST_URI}:9090/graph"
 

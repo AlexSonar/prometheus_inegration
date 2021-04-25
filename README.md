@@ -1,4 +1,4 @@
-# Prometheus Inegration
+# PROMETHEUS INTEGRATION
 
 ## Description
 
@@ -26,10 +26,10 @@ Or if you intended to make it quick and easy by running one entry-point file.
 
 for local hosted    | for cloud hosted
 --------------------|-------------
-OS Debian or Ubuntu | IMA credentials
-Bash                | Bash
-Docker              | Terraform 
-Docker-compose      | 
+OS Debian or Ubuntu | Cloud ENV
+Bash                | IMA credentials
+Docker              | Bash
+Docker-compose      | Terraform 
 
 <br />
 
@@ -39,10 +39,12 @@ Docker-compose      |
 /docker/make_compose_component.sh
 
 > The main executable file on the container side (autostarted)
-/prometheus/installers/install_base_tools.sh
+
+[/prometheus/installers/install_base_tools.sh](https://github.com/AlexSonar/prometheus_inegration/blob/main/prometheus/installers/install_base_tools.sh)
 
 > Services test (autostarted)
-/docker/services_availability_tests.sh
+
+[/docker/services_availability_tests.sh](https://github.com/AlexSonar/prometheus_inegration/blob/main/docker/services_availability_tests.sh)
 
 <br />
 
@@ -50,9 +52,9 @@ Docker-compose      |
 
 Before you start please:
 
-1. Take a look on roject prerequisites;
-2. Take a look on [Docker-compose compatibility doc](https://github.com/AlexSonar/prometheus_inegration/blob/main/docs/issue_Docker-compose%20compatibility.md);
-3. Take a look on /docker/set_env_vars_default.sh you may want to customize many of the variables like ports; environment; labels networks; ext.
+1. take a look on roject prerequisites;
+2. take a look on [Docker-compose compatibility doc](https://github.com/AlexSonar/prometheus_inegration/blob/main/docs/issue_Docker-compose%20compatibility.md);
+3. take a look on /docker/set_env_vars_default.sh you may want to customize many of the variables like ports; environment; labels networks; ext.
 (**Caution!** the "volumes" has an inverse relationship in the project components)
 4. run /docker/make_compose_component.sh
 
